@@ -1,0 +1,21 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+	<div class="">
+			<div class="text-center">
+				<div class="panel panel-primary" style="width: 38rem;">
+					<form action="{{url_for('deleteByke',bcid=bcid,bcmname=bykedetails.name)}}" method="POST">
+						<div class="panel-body">
+							<h4 style="color: blue;">Are you sure you want to delete {{bykedetails.name}}</h4>
+						</div>
+						<div class="panel-footer text-center">
+							<input type="submit" class="btn btn-danger" value="Delete" style="margin-right: 10px;">
+						    <button type="button" class="btn btn-warning"><a href="{{url_for('showBykes',bcid=bcid)}}">CANCEL</a></button>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+	</div>
+{% endblock content %}	
+</div>

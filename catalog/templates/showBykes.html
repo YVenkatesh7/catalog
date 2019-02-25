@@ -1,0 +1,47 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	{% endif %}	    
+{% endwith %}
+{% if 'username' in session %}
+<button type="button" class="btn btn-warning" style="margin: 5px 0px 5px 25px;"><a href="{{url_for('addBykeDetails',bcname=bc.name)}}" style="text-decoration: none;"><strong>Add New Byke</strong></a></button>
+
+{% endif %}
+<div class="row" style="margin: 10px;">
+{% for tbe in bm %}
+
+	<div class="col-sm-4 text-center">
+		<div class="panel panel-primary" style="background-color:tomato;border:none">
+			<div class="panel-heading" style="background-color:#330080;border-radius:30px">
+				<h4>{{ tbe.name }}</h4>
+			</div>
+			<div class="panel-body text-center" style="background-color:#e0ccff;border-radius:30px">
+				<table>
+					<tr><th>BYKETYPE</th><td>:</td><td><h5>{{ tbe.byketype }}</h5></td></tr>
+					<tr><th>YEAR</th><td>:</td><td><h5>{{ tbe.year }}</h5></td></tr>
+					<tr><th>COLOR</th><td>:</td><td><h5>{{ tbe.color }}</h5></td></tr>
+					<tr><th>CC</th><td>:</td><td><h5>{{ tbe.cc }}</h5></td></tr>
+					<tr><th>PRICE</th><td>:</td><td><h5>{{ tbe.price }}</h5></td></tr>
+				</table>
+			</div>
+			{% if 'username' in session %}
+			<div class="panel-footer" style="border-radius:30px;background-color:#4dd2ff">
+					<button type="button" class="btn btn-info"style="background-color:#004d1a"><a href="{{ url_for('editByke',bcid=bc.id,bcmname=tbe.name) }}"style="text-decoration: none;color:white;">EDIT</a></button>
+					<button type="button" class="btn btn-danger" style="background-color:#990000"><a href="{{ url_for('deleteByke',bcid=bc.id,bcmname=tbe.name)}}"style="text-decoration: none;color:white;">DELETE</a></button>
+			</div>
+			{% endif %}	
+			
+		</div>
+	</div>
+{% endfor %}
+</div>
+{% endblock content %}
+</div>

@@ -1,0 +1,54 @@
+{% include 'nav.html' %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<div class="main">
+{% block content %}
+  <!-- {% for tb in bykes_cat %}
+    <a href="{{ url_for('showBykes',bcid=tb.id)}}">{{tb.name}}</a><br>
+    {% endfor %} -->
+    {% with messages = get_flashed_messages() %}
+	    {% if messages %}
+	        <div class="alert alert-success alert-dismissable animated fadeIn">
+	            {% for message in messages %}
+	            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+	            <p class="h4"><strong>{{ message }}</strong></p>
+	            {% endfor %}
+	        </div>
+	    {% endif %}
+	{% endwith %}
+
+	<!--<div class="text-center">
+		<!-- <h1>Welcome to Bykestore</h1> --
+		<img style="width: 750px; height: 400px; margin: 0; padding: 0; margin-top: 50px" src="https://gaadiwaadi.com/wp-content/uploads/2018/07/Haley-Announces-Huge-Plans-for-India-250-500-CC-Bikes-Arriving-2.jpg">
+	</div>-->
+	<div class="w3-content w3-section" style="max-width:500px">
+
+  <img class="mySlides w3-animate-fading" src="https://gaadiwaadi.com/wp-content/uploads/2018/07/Haley-Announces-Huge-Plans-for-India-250-500-CC-Bikes-Arriving-2.jpg" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:0px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="https://imgd4.aeplcdn.com/0x0/bikewaleimg/ec/1149/img/l/bajaj-pulsar-ss400-front-three-quarter-6486.jpg?20141702124822" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:0px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="https://www.cycleworld.com/sites/cycleworld.com/files/styles/1000_1x_/public/images/2017/09/yamaha-yzf-r1-ten-best-bikes-2017.jpg?itok=-kvLQDY2&fc=50,50" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:0px;border-radius:40px">
+  <img class="mySlides w3-animate-fading" src="https://news.maxabout.com/wp-content/uploads/2016/08/Duke-200-White.jpg" style="width: 750px; height: 500px; margin: 0; padding:0; margin-top: 50px;margin-left:0px;border-radius:40px">
+</div>
+
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 3000);    
+}
+</script>
+
+
+    
+{% endblock content %}
+</div>

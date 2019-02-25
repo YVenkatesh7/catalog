@@ -1,0 +1,15 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+    
+<div class="">
+  <h2>EDIT BYKE CATEGORY</h2>
+  <form class="form-inline" action="{{ url_for('editBykeCategory',bcid=tb.id)}}" method="post">
+    <div class="form-group">
+      <label for="name">BYKE NAME:</label>
+      <input type="text" class="form-control" id="name" value="{{tb.name}}" name="name">
+    </div>
+    <button type="submit" class="btn btn-default">SUBMIT</button>
+  </form>
+</div>
+{% endblock content %}

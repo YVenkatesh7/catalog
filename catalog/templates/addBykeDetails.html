@@ -1,0 +1,47 @@
+
+
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+
+<div class="">
+		<div class="mr-sm-2 mb-2 col-sm-8" style="margin: 10px;">
+			<form action="{{ url_for('addBykeDetails',bcname=bcname)}}" method="POST">
+				<div class="panel panel-primary">
+				  <div class="panel-heading bg-success">Add Byke Details</div>
+				  <div class="panel-body">
+				  	
+					  <div class="form-group">
+					  	<label class="text-primary" for="name">Enter Byke Name:</label>
+					    <input type="name" class="form-control" name="name" placeholder="Enter Byke Name:" pattern="[A-Za-z ]{1,}" title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="year">Enter manifacture Year:</label>
+					    <input type="text" class="form-control" name="year" placeholder="Enter Manufacture year:" pattern="[A-Za-z0-9 ]{1,}" title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="color">Enter Byke color:</label>
+					    <input type="text" class="form-control" name="color" placeholder="Enter Byke Color:" pattern="[A-Za-z0-9 ]{1,}" title="Allow both characters and numbers only " required>
+					  </div>
+					  <div class="text-primary" class="form-group">
+					  	<label for="cc">Enter CC:</label>
+					    <input type="text" class="form-control" name="cc" placeholder="Enter Byke CC:" pattern="[A-Za-z0-9 ]{1,}" title="Allow Characters Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="price">Enter Price:</label>
+					    <input type="text" class="form-control" name="price" placeholder="Enter Price:" pattern="[0-9]{2,}" title="Allow numbers Only" required>
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="byketype">Enter Byke Type:</label>
+					    <input type="text" class="form-control" name="byketype" placeholder="Enter Byke type:" pattern="[A-Za-z0-9 ]{1,}" title="Allow numbers Only" required>
+					  </div>
+					  <div class="form-group">
+					    <input type="text" class="form-control " name="bykecompanynameid" value="{{ bcname }}" readonly>
+					  </div>
+				  </div> 
+				  <div class="panel-footer text-center"><input type="submit" class="btn btn-primary" value="Submit"></div>
+				</div>
+				</form>
+			</div>
+</div>
+{% endblock content %}

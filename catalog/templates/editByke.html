@@ -1,0 +1,42 @@
+{% include 'nav.html' %}
+<div class="main">
+{% block content %}
+
+<div class="">
+		<div class="mr-sm-2 mb-2 col-sm-8" style="margin: 10px;">
+			<form action="{{ url_for('editByke',bcid=bcid,bcmname=bykedetails.name)}}" method="POST">
+				<div class="panel panel-info">
+				  <div class="panel-heading">Edit Byke Details</div>
+				  <div class="panel-body">
+				  	
+					  <div class="form-group">
+					  	<label class="text-primary" for="name">Enter Byke Name:</label>
+					    <input type="name" class="form-control" name="name" value="{{bykedetails.name}}">
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="year">Enter Year Of Manufacturing:</label>
+					    <input type="text" class="form-control" name="year" value="{{bykedetails.year}}">
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="color">Enter Byke Color:</label>
+					    <input type="text" class="form-control" name="color" value="{{bykedetails.color}}">
+					  </div>
+					  <div class="text-primary" class="form-group">
+					  	<label for="cc">Enter Byke CC:</label>
+					    <input type="text" class="form-control" name="cc" value="{{bykedetails.cc}}">
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="price">Enter Price:</label>
+					    <input type="text" class="form-control" name="price" value="{{bykedetails.price}}">
+					  </div>
+					  <div class="form-group">
+					  	<label class="text-primary" for="byketype">Enter Byke Type:</label>
+					    <input type="text" class="form-control" name="byketype" value="{{bykedetails.byketype}}">
+					  </div>					  
+				  </div> 
+				  <div class="panel-footer text-center"><input type="submit" class="btn btn-primary" value="Edit"></div>
+				</div>
+				</form>
+			</div>
+</div>
+{% endblock content %}
